@@ -1,29 +1,57 @@
-#calc{
-    width: 300px;
-    height: auto;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #e985d3;
-    font-family: monospace;
+/* Container holding everything */
+#calc {
+  width: 360px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #e985d3;
+  font-family: monospace;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-#screen{
-    height: 50px;
-    margin-bottom: 15px;
-    background-color: #222;
-    color: #fff;
-    font-size: 24px;
-    text-align: right;
-    padding: 10px;
-    border-radius: 5px;
+/* Screen at the top */
+#screen {
+  height: 50px;
+  background-color: #222;
+  color: #fff;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
 }
 
+/* This wraps numbers and operator buttons side by side */
+#button-area {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Number buttons in grid */
+#numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  flex: 3;
+}
+
+/* Operator + special buttons stacked vertically */
+#col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 1;
+}
+
+/* Button styling */
 button {
   width: 60px;
   height: 60px;
-  margin: 5px;
   font-size: 20px;
   border-radius: 8px;
   border: none;
@@ -34,12 +62,4 @@ button {
 
 button:hover {
   background-color: #7a8fca;
-}
-
-
-#numbers, #operators #specOperator{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* or 4 if you want more spacing */
-  gap: 10px;
-  justify-items: center;
 }

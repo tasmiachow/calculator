@@ -6,9 +6,18 @@ const multiply = document.querySelector("#multiply");
 const divide = document.querySelector("#division");
 const equal = document.querySelector("#equal");
 const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+let firstNumber = "";
+let firstOperator ="";
+let secondNumber ="";
 
+//clear button 
 clear.addEventListener("click", ()=>{
    screen.textContent = "";
+   firstNumber ="";
+   secondNumber ="";
+   firstOperator="";
+   console.log("cleared");
 });
 
 
@@ -50,8 +59,13 @@ function operate(op, a, b){
 
 function populateDisplay(e){
     screen.textContent += e.target.textContent;
+    firstNumber +=e.target.textContent;
 };
 
 numbers.forEach(button =>{
     button.addEventListener("click", populateDisplay);
+});
+
+operators.forEach(button=>(){
+   button.addEventListener("click", ) 
 });

@@ -10,6 +10,7 @@ const operators = document.querySelectorAll(".operator");
 let firstNumber = "";
 let firstOperator ="";
 let secondNumber ="";
+let secNumberInputted = false;
 
 //clear button 
 clear.addEventListener("click", ()=>{
@@ -17,12 +18,16 @@ clear.addEventListener("click", ()=>{
    firstNumber ="";
    secondNumber ="";
    firstOperator="";
+   secNumberInputted = false;
    console.log("cleared");
 });
 
-
+//convert to num back to string
 function adding(a,b){
-    return a+b;
+   let a_num = Number(a);
+   let b_num = Number(b);
+   let sumOfNums = a+b;
+
 };
 
 function subtracting(a,b){
@@ -59,13 +64,32 @@ function operate(op, a, b){
 
 function populateDisplay(e){
     screen.textContent += e.target.textContent;
-    firstNumber +=e.target.textContent;
+    if(!secNumberInputted){
+        firstNumber +=e.target.textContent;
+    }
+    else if (secNumberInputted){
+        secondNumber+=e.target.textContent;
+    }
 };
 
 numbers.forEach(button =>{
     button.addEventListener("click", populateDisplay);
 });
 
-operators.forEach(button=>(){
-   button.addEventListener("click", ) 
+function storeOp(e){
+    firstOperator=e.target.textContent;
+    screen.textContent="";
+    secNumberInputted= true;
+};
+
+operators.forEach(button =>{
+    button.addEventListener("click", storeOp); 
 });
+
+
+equal.addEventListener("click",()=>{
+    if(secNumberInputted){
+        operate(firstOperator, firstNumber, secondNumber);
+    }
+});
+

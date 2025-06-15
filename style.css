@@ -37,7 +37,7 @@ button:hover {
 }
 
 
-#numbers, #operators {
+#numbers, #operators #specOperator{
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* or 4 if you want more spacing */
   gap: 10px;

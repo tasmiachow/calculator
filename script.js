@@ -87,6 +87,9 @@ function populateDisplay(e){
     else if(secNumberInputted){
         secondNumber+=e.target.textContent;
     }
+    if(secNumberInputted && secondNumber!=''){
+         operate(firstOperator, firstNumber, secondNumber);
+    }
 };
 
 numbers.forEach(button =>{
